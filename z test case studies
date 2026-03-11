@@ -1,0 +1,32 @@
+# Imports
+import math
+import numpy as np
+from numpy.random import randn, seed
+from statsmodels.stats.weightstats import ztest
+
+# Fix seed for reproducibility
+seed(1)
+
+# Parameters
+mean_iq = 110
+sd_iq = 15 / math.sqrt(50)   # standard error
+alpha = 0.05
+null_mean = 100
+
+# Generate sample data (50 values)
+data = sd_iq * randn(50) + mean_iq
+
+# Print mean and standard deviation
+print('mean=%.2f stdv=%.2f' % (np.mean(data), np.std(data)))
+
+# Perform one-sample Z-test
+ztest_score, p_value = ztest(data, value=null_mean, alternative='larger')
+
+print("Z-test score:", ztest_score)
+print("p-value:", p_value)
+
+# Decision rule
+if p_value < alpha:
+    print("Reject Null Hypothesis")
+else:
+    print("Fail to Reject Null Hypothesis")
