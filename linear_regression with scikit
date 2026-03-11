@@ -1,0 +1,52 @@
+
+EX NO: 6A SIMPLE LINEAR REGRESSION WITH SCIKIT LEARN
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+# Data
+x = np.array([5, 15, 25, 35, 45, 55]).reshape((-1, 1))
+y = np.array([5, 20, 14, 32, 22, 38])
+
+# Fit the model
+model = LinearRegression().fit(x, y)
+
+# Coefficient of determination (R²)
+r_sq = model.score(x, y)
+print('Coefficient of determination:', r_sq)
+
+# Predicted responses
+y_pred = model.predict(x)
+print('Predicted response:', y_pred)
+
+
+EX NO: 6B MULTIPLE LINEAR REGRESSION ---WITH SCIKIT-LEARN
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+# Input data (two features per sample)
+x = [[0, 1], [5, 1], [15, 2], [25, 5], [35, 11], [45, 15], [55, 34], [60, 35]]
+y = [4, 5, 20, 14, 32, 22, 38, 43]
+
+# Convert to NumPy arrays
+x, y = np.array(x), np.array(y)
+
+# Fit the model
+model = LinearRegression().fit(x, y)
+
+# Coefficient of determination (R²)
+r_sq = model.score(x, y)
+print('Coefficient of determination:', r_sq)
+
+# Intercept and slopes
+print('Intercept:', model.intercept_)
+print('Slope:', model.coef_)
+
+# Predicted responses
+y_pred = model.predict(x)
+print('Predicted response:', y_pred)
+
+
+
+
