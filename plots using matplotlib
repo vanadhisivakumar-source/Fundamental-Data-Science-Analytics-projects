@@ -1,0 +1,107 @@
+EX NO: 3A BASIC PLOTS USING MATPLOTLIB
+
+import matplotlib.pyplot as plt
+
+# X-axis values
+x = [1, 2, 3]
+
+# Corresponding Y-axis values
+y = [2, 4, 1]
+
+# Plotting the points
+plt.plot(x, y, marker='o', linestyle='-', color='b', label='Line')
+
+# Naming the X-axis
+plt.xlabel('x - axis')
+
+# Naming the Y-axis
+plt.ylabel('y - axis')
+
+# Giving a title to the graph
+plt.title('Simple Line Graph')
+
+# Adding a legend
+plt.legend()
+
+# Display the plot
+plt.show()
+
+
+EX NO: 3B COMPUTE THE X AND Y COORDINATES AND CREATE A PLOT
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate values from 0 to 3π with step size 0.1
+x = np.arange(0, 3 * np.pi, 0.1)
+y = np.sin(x)
+
+# Plot the sine wave
+plt.plot(x, y)
+plt.title("Sine Wave")
+plt.xlabel("x values")
+plt.ylabel("sin(x)")
+plt.grid(True)
+plt.show()
+
+
+EX NO: 3C DRAWING MULTIPLE LINES USING PLOT FUNCTION
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Compute the x and y coordinates for points on sine and cosine curves
+x = np.arange(0, 3 * np.pi, 0.1)
+y_sin = np.sin(x)
+y_cos = np.cos(x)
+
+# Plot the points using matplotlib
+plt.plot(x, y_sin)
+plt.plot(x, y_cos)
+
+# Add labels, title, and legend
+plt.xlabel('x axis label')
+plt.ylabel('y axis label')
+plt.title('Sine and Cosine')
+plt.legend(['Sine', 'Cosine'])
+
+# Display the plot
+plt.show()
+
+Ex No: 3D BASIC PLOT USING MATPLOTLIB
+
+import matplotlib.pyplot as plt
+
+# Data
+x = [5, 2, 9, 4, 7]
+y = [10, 5, 8, 4, 2]
+
+# Line Plot
+plt.plot(x, y, marker='o')
+plt.title("Line Plot")
+plt.xlabel("X values")
+plt.ylabel("Y values")
+plt.grid(True)
+plt.show()
+
+# Bar Plot
+plt.bar(x, y, color='skyblue')
+plt.title("Bar Plot")
+plt.xlabel("X values")
+plt.ylabel("Y values")
+plt.show()
+
+# Histogram
+plt.hist(y, bins=5, color='orange', edgecolor='black')
+plt.title("Histogram")
+plt.xlabel("Value bins")
+plt.ylabel("Frequency")
+plt.show()
+
+# Scatter Plot
+plt.scatter(x, y, color='red')
+plt.title("Scatter Plot")
+plt.xlabel("X values")
+plt.ylabel("Y values")
+plt.grid(True)
+plt.show()
