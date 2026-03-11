@@ -1,0 +1,108 @@
+EX NO: 5A CREATE NORMAL CURVE
+
+from scipy.stats import norm
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sb
+
+# Generate data points
+data = np.arange(1, 10, 0.01)
+
+# Normal distribution PDF with mean=5.3 and std=1
+pdf = norm.pdf(data, loc=5.3, scale=1)
+
+# Plot using seaborn
+sb.set_style('whitegrid')
+sb.lineplot(x=data, y=pdf, color='black')
+
+# Labels
+plt.xlabel('Heights')
+plt.ylabel('Probability Density')
+plt.title('Normal Distribution Curve')
+
+plt.show()
+
+EX NO: 5B CORRELATION AND SCATTER PLOTS
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Data
+y = pd.Series([1, 2, 3, 4, 3, 5, 4])
+x = pd.Series([1, 2, 3, 4, 5, 6, 7])
+
+# Correlation coefficient
+correlation = y.corr(x)
+print("Correlation:", correlation)
+
+# Scatter plot
+plt.scatter(x, y)
+
+# Best-fit line (linear regression)
+plt.plot(
+    np.unique(x),
+    np.poly1d(np.polyfit(x, y, 1))(np.unique(x)),
+    color='red'
+)
+
+plt.xlabel("X values")
+plt.ylabel("Y values")
+plt.title("Correlation and Scatter Plot with Best-fit Line")
+plt.show()
+
+
+i) SIMPLE SCATTER PLOT
+
+x = range(50) 
+y = range(50) + np.random.randint(0,30,50) 
+plt.scatter(x, y) 
+plt.rcParams.update({'figure.figsize':(10,8), 'figure.dpi':100}) 
+plt.title('Simple Scatter plot') 
+plt.xlabel('X - value') 
+plt.ylabel('Y - value') 
+plt.show()
+
+ii) SIMPLE SCATTER PLOT WITHCOLORED POINTS
+
+x = range(50) 
+y = range(50) + np.random.randint(0,30,50) 
+plt.rcParams.update({'figure.figsize':(10,8), 'figure.dpi':100}) plt.scatter(x, 
+y, c=y, cmap='Spectral') 
+plt.colorbar() plt.title('Simple 
+Scatter plot') plt.xlabel('X - 
+value') 
+plt.ylabel('Y - value') 
+plt.show()
+
+
+EX NO: 5C CORRELATION COEFFICIENT 
+NUMPY CORRELATION CALCULATION
+
+import numpy as np
+
+x = np.arange(10, 20)
+y = np.array([2, 1, 4, 5, 8, 12, 18, 25, 96, 48])
+
+# Correlation matrix
+r = np.corrcoef(x, y)
+print(r)
+
+
+PEARSON’S CORRELATION
+
+from numpy.random import randn, seed
+from scipy.stats import pearsonr
+
+# Fix the random seed for reproducibility
+seed(1)
+
+# Generate synthetic data
+data1 = 20 * randn(1000) + 100          # Normally distributed around mean=100
+data2 = data1 + (10 * randn(1000) + 50) # Related to data1 but with noise and offset
+
+# Pearson correlation
+corr, _ = pearsonr(data1, data2)
+print('Pearsons correlation:', corr)
+
