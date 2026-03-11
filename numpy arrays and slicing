@@ -36,3 +36,29 @@ print(a)
 # Slice the array from row index 1 to the end
 print("\nAfter slicing:")
 print(a[1:])  # This will include rows with index 1 and 2
+
+1C 	PROGRAM TO PERFORM ARRAY SLICING 
+
+import numpy as np
+
+# Create a 3x3 NumPy array
+a = np.array([
+    [1, 2, 3],
+    [3, 4, 5],
+    [4, 5, 6]
+])
+
+print("Our array is:")
+print(a)
+
+# Get all items from the second column (index 1)
+print("\nThe items in the second column are:")
+print(a[..., 1])  # Ellipsis (...) means "all rows", column index 1
+
+# Get all items from the second row (index 1)
+print("\nThe items in the second row are:")
+print(a[1, ...])  # Row index 1, all columns
+
+# Get all items from column 1 onwards
+print("\nThe items from column 1 onwards are:")
+print(a[..., 1:])  # All rows, columns starting from index 1
