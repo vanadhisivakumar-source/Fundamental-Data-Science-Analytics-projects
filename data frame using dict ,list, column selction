@@ -51,3 +51,47 @@ print(df)
 print("\nSelected Columns:")
 print(df[['Name', 'Qualification']])
 
+EX NO: 2D CHECKING FOR MISSING VALUES USING ISNULL() AND NOTNULL() 
+
+# importing pandas as pd
+import pandas as pd
+
+# importing numpy as np
+import numpy as np
+
+# dictionary of lists
+data = {
+    'First Score': [100, 90, np.nan, 95],
+    'Second Score': [30, 45, 56, np.nan],
+    'Third Score': [np.nan, 40, 80, 98]
+}
+
+# creating a DataFrame from dictionary
+df = pd.DataFrame(data)
+
+# using isnull() function to check for NaN values
+print(df.isnull())
+
+EX NO: 2E 	DROPPING MISSING VALUES USING DROPNA() 
+
+# Importing pandas and numpy
+import pandas as pd
+import numpy as np
+
+# Dictionary of lists with some NaN values
+data = {
+    'First Score': [100, 90, np.nan, 95],
+    'Second Score': [30, np.nan, 45, 56],
+    'Third Score': [52, 40, 80, 98],
+    'Fourth Score': [np.nan, np.nan, np.nan, 65]
+}
+
+# Creating a DataFrame from dictionary
+df = pd.DataFrame(data)
+
+print("Original DataFrame:\n", df, "\n")
+
+# Dropping rows with at least one NaN value
+df_cleaned = df.dropna()
+
+print("DataFrame after dropping rows with at least one NaN value:\n", df_cleaned)
