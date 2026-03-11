@@ -1,0 +1,145 @@
+EX NO:4A CONDITIONAL FREQUENCY DISTRIBUTION
+
+import pandas as pd
+import numpy as np
+import nltk
+from nltk.probability import ConditionalFreqDist
+
+# Step 1: Define items with categories
+items = [
+    ('F', 'Apple'),
+    ('F', 'Banana'),
+    ('F', 'Orange'),
+    ('V', 'Carrot'),
+    ('V', 'Tomato'),
+    ('V', 'Potato'),
+    ('F', 'Apple'),
+    ('V', 'Carrot'),
+    ('F', 'Banana'),
+    ('V', 'Tomato')
+]
+
+# Step 2: Build Conditional Frequency Distribution
+cfd = ConditionalFreqDist(items)
+
+# Step 3: Display frequencies
+print("Conditional Frequency Distribution:\n")
+for category in cfd.conditions():
+    print(f"Category: {category}")
+    for item in cfd[category]:
+        print(f"  {item}: {cfd[category][item]}")
+
+# Step 4: Convert to DataFrame for tabular view
+df = pd.DataFrame(dict((category, dict(cfd[category])) for category in cfd.conditions()))
+print("\nTabular View:\n")
+
+EX NO: 4B FREQUENCY OF WORDS, OF A PARTICULAR GENRE, IN 
+BROWN CORPUS.
+
+
+fromnltk.corpusimport brown 
+cfd= nltk.ConditionalFreqDist([ (genre, word) for genre inbrown.categories() for word 
+inbrown.words(categories=genre) ]) cfd 
+cfd.conditions() 
+cfd.tabulate(conditions=['government', 'humor', 'reviews'],samples=['leadership', 'worship', 
+'hardship']) 
+cfd.plot(conditions=['government', 'humor', 'reviews'],samples=['leadership', 'worship', 'hardship']) 
+cfd.tabulate(conditions=['government', 'humor', 'reviews'], samples=['leadership', 'worship', 
+'hardship'], cumulative =True) 
+news_fd=cfd['news'] 
+news_fd.most_common(3) 
+news_fd['the'] 
+ 
+
+EX NO: 4C FREQUENCY OF LAST CHARACTER APPEARING IN ALL 
+NAMES ASSOCIATED WITH MALES AND FEMALES RESPECTIVELY AND 
+COMPARES THEM 
+
+ fromnltk.corpusimport names 
+nt= [(fid.split('.')[0], name[-1]) for fid innames.fileids() for name innames.words(fid) ] 
+cfd2 =nltk.ConditionalFreqDist(nt) 
+cfd2['female']['a'] 
+cfd2['male']['a'] cfd2['female'] > 
+cfd2['male'] 
+cfd2.tabulate(samples=['a', 'e']) 
+cfd2.plot(samples=['a', 'e'])
+
+
+EX NO: 4D 
+AVERAGE OF LIST USING LOOP
+
+
+def cal_average(num):
+    sum_num = 0
+    for t in num:
+        sum_num = sum_num + t
+    avg = sum_num / len(num)
+    return avg
+
+print("The average is", cal_average([18, 25, 3, 41, 5]))
+
+EX NO: 4E 
+AVERAGE OF LIST USING BUILT IN FUNCTIONS
+
+ def cal_average(num): 
+sum_num = 0 
+for t in num: 
+sum_num = sum_num + t 
+avg = sum_num / len(num) 
+return avg 
+print("The average is", cal_average([18, 25, 
+3, 41, 5])) 
+
+Ex No: 4F AVERAGE OF LIST USING MEAN FUNCTION
+
+from statistics import mean
+
+number_list = [45, 34, 10, 36, 12, 6, 80]
+avg = mean(number_list)
+
+print("The average is", round(avg, 2))
+
+EX NO: 4G AVERAGE OF LIST USING NUMPY LIBRARY
+
+
+from numpy import mean
+
+number_list = [45, 34, 10, 36, 12, 6, 80]
+avg = mean(number_list)
+
+print("The average is", round(avg, 2))
+ 
+EX NO: 4H VARIANCE OF SAMPLE SET
+
+import statistics
+
+sample = [2.74, 1.23, 2.63, 2.22, 3, 1.98]
+print("Variance of sample set is", statistics.variance(sample))
+
+EX NO: 4I VARIANCE ON A RANGE OF DATA-TYPES
+
+
+from statistics import variance
+from fractions import Fraction as fr
+
+sample1 = (1, 2, 5, 4, 8, 9, 12)
+sample2 = (-2, -4, -3, -1, -5, -6)
+sample3 = (-9, -1, 0, 2, 1, 3, 4, 19)
+sample4 = (fr(1, 2), fr(2, 3), fr(3, 4), fr(5, 6), fr(7, 8))
+sample5 = (1.23, 1.45, 2.1, 2.2, 1.9)
+
+print("Variance of Sample1 is", variance(sample1))
+print("Variance of Sample2 is", variance(sample2))
+print("Variance of Sample3 is", variance(sample3))
+print("Variance of Sample4 is", variance(sample4))
+print("Variance of Sample5 is", variance(sample5))
+print(df.fillna(0))
+
+EX NO: 4J STATISTICS
+
+import statistics
+
+sample = (1, 1.3, 1.2, 1.9, 2.5, 2.2)
+m = statistics.mean(sample)
+
+print("Variance of Sample set is", statistics.variance(sample, xbar=m))
