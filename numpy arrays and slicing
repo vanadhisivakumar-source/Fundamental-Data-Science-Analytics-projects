@@ -1,0 +1,38 @@
+1A 	WORKING WITH NUMPY ARRAYS 
+import numpy as np  # Import NumPy library
+
+# Creating a 2D NumPy array
+arr = np.array([[1, 2, 3],
+                [4, 2, 5]])
+
+# Printing type of arr object
+print("Array is of type:", type(arr))
+
+# Printing array dimensions (axes)
+print("Number of dimensions:", arr.ndim)
+
+# Printing shape of array (rows, columns)
+print("Shape of array:", arr.shape)
+
+# Printing size (total number of elements)
+print("Size of array:", arr.size)
+
+# Printing data type of elements
+print("Array stores elements of type:", arr.dtype)
+
+1B PROGRAM TO PERFORM ARRAY SLICING 
+
+import numpy as np
+
+# Create a 3x3 NumPy array
+a = np.array([[1, 2, 3],
+              [3, 4, 5],
+              [4, 5, 6]])
+
+# Print the original array
+print("Original array:")
+print(a)
+
+# Slice the array from row index 1 to the end
+print("\nAfter slicing:")
+print(a[1:])  # This will include rows with index 1 and 2
